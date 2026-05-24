@@ -40,6 +40,11 @@
     overflow-x: hidden;
   }
 
+  /* Subtle dark-mode body glow so the soft blobs read */
+  .dark body {
+    color: rgb(var(--fg));
+  }
+
   .dark body {
     background-color: rgb(var(--bg));
     background-image:
@@ -126,26 +131,26 @@
   }
 
   /* Specialised, more opaque variant for nav so it stays readable
-     when scrolling across very different section backgrounds. */
+     against every section background (light + dark). */
   .glass-nav {
     @apply backdrop-blur-2xl border;
-    background: rgba(255, 253, 247, 0.72);
-    border-color: rgba(237, 194, 180, 0.45);
+    background: rgba(255, 253, 247, 0.85);
+    border-color: rgba(192, 138, 110, 0.45);
     box-shadow:
-      0 10px 30px -10px rgba(75, 56, 38, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+      0 10px 30px -10px rgba(75, 56, 38, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.85);
   }
 
   .dark .glass-nav {
     background: linear-gradient(
       135deg,
-      rgba(31, 27, 69, 0.78) 0%,
-      rgba(22, 20, 48, 0.7) 100%
+      rgba(31, 27, 69, 0.88) 0%,
+      rgba(22, 20, 48, 0.82) 100%
     );
-    border-color: rgba(237, 194, 180, 0.22);
+    border-color: rgba(245, 210, 122, 0.32);
     box-shadow:
-      0 14px 40px rgba(0, 0, 0, 0.55),
-      inset 0 1px 0 rgba(245, 210, 122, 0.12);
+      0 14px 40px rgba(0, 0, 0, 0.6),
+      inset 0 1px 0 rgba(245, 210, 122, 0.18);
   }
 
   .divider-ornate {

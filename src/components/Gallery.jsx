@@ -81,7 +81,13 @@ export default function Gallery() {
       className="section-pad relative isolate bg-cream-50 dark:bg-nightblue-900 overflow-hidden"
     >
       {/* Decorative arabesque */}
-      <div className="absolute inset-0 arabesque-bg opacity-20 dark:opacity-[0.05]" />
+      <div className="absolute inset-0 arabesque-bg opacity-20 dark:opacity-[0.08]" />
+
+      {/* Soft ambient blobs in dark mode for depth */}
+      <div className="pointer-events-none absolute inset-0 hidden dark:block">
+        <div className="absolute top-20 right-1/4 h-96 w-96 rounded-full bg-rosegold-100/[0.05] blur-[120px]" />
+        <div className="absolute bottom-20 left-1/4 h-96 w-96 rounded-full bg-softgold-200/[0.04] blur-[120px]" />
+      </div>
 
       <div className="container-luxury relative">
         <SectionHeading

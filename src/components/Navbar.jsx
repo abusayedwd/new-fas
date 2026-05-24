@@ -38,10 +38,10 @@ export default function Navbar({ theme, onToggleTheme }) {
     >
       <div
         className={cn(
-          'container-luxury flex items-center justify-between rounded-full transition-all duration-700',
+          'container-luxury flex items-center justify-between rounded-full transition-all duration-700 glass-nav',
           scrolled
-            ? 'glass-nav px-5 sm:px-7 py-2.5'
-            : 'px-1 sm:px-3 py-1.5'
+            ? 'px-5 sm:px-7 py-2.5 shadow-luxury'
+            : 'px-5 sm:px-7 py-2.5'
         )}
       >
         {/* Logo */}
@@ -50,17 +50,18 @@ export default function Navbar({ theme, onToggleTheme }) {
           className="group relative flex items-center gap-2.5 font-serif text-2xl"
           aria-label="Home"
         >
-          <span className="text-shimmer-rosegold font-semibold tracking-wide">
+          <span className="absolute -inset-2 rounded-full bg-rosegold-100/0 group-hover:bg-rosegold-100/30 dark:group-hover:bg-softgold-200/10 blur-md transition-all duration-500" />
+          <span className="relative font-bold tracking-wide text-rosegold-500 dark:text-softgold-200">
             A
           </span>
           <motion.span
-            animate={{ scale: [1, 1.15, 1] }}
+            animate={{ scale: [1, 1.18, 1] }}
             transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
-            className="text-rosegold-300"
+            className="relative text-rosegold-400 dark:text-rosegold-100 drop-shadow"
           >
             <Heart className="h-4 w-4" fill="currentColor" strokeWidth={0} />
           </motion.span>
-          <span className="text-shimmer-rosegold font-semibold tracking-wide">
+          <span className="relative font-bold tracking-wide text-rosegold-500 dark:text-softgold-200">
             F
           </span>
         </a>
@@ -71,7 +72,7 @@ export default function Navbar({ theme, onToggleTheme }) {
             <a
               key={item.href}
               href={item.href}
-              className="group relative px-4 py-2 text-sm font-medium text-warmbrown-400 dark:text-cream-100/90 hover:text-rosegold-500 dark:hover:text-softgold-200 transition-colors"
+              className="group relative px-4 py-2 text-sm font-semibold tracking-wide text-warmbrown-500 dark:text-cream-100 hover:text-rosegold-500 dark:hover:text-softgold-200 transition-colors"
             >
               {item.label}
               <span className="absolute left-1/2 -translate-x-1/2 bottom-1 h-px w-0 group-hover:w-6 bg-gradient-to-r from-rosegold-300 to-softgold-200 transition-all duration-500" />
@@ -206,7 +207,8 @@ function IconButton({ children, label, onClick }) {
     <button
       onClick={onClick}
       aria-label={label}
-      className="group relative h-10 w-10 rounded-full flex items-center justify-center text-warmbrown-400 dark:text-cream-100/90 hover:text-rosegold-500 dark:hover:text-softgold-200 hover:bg-rosegold-100/30 dark:hover:bg-softgold-200/[0.1] transition-all duration-300"
+      className="group relative h-10 w-10 rounded-full flex items-center justify-center text-warmbrown-500 dark:text-cream-100 hover:text-rosegold-500 dark:hover:text-softgold-200 hover:bg-rosegold-100/40 dark:hover:bg-softgold-200/[0.12] transition-all duration-300"
+      style={{ strokeWidth: 2 }}
     >
       <span className="absolute inset-0 rounded-full bg-rosegold-100/0 group-hover:bg-rosegold-100/30 dark:group-hover:bg-softgold-200/[0.08] blur-md transition-all duration-500" />
       <span className="relative">{children}</span>

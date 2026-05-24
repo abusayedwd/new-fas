@@ -89,15 +89,24 @@ export default function Hero() {
           بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ
         </motion.p>
 
-        {/* Main name */}
-        <motion.h1
+        {/* Main name with decorative flourish */}
+        <motion.div
           initial={{ opacity: 0, y: 40, filter: 'blur(8px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ delay: 0.8, duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="heading-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1] text-shimmer-rosegold pb-3"
+          className="relative"
         >
-          Fariha Tasnim
-        </motion.h1>
+          {/* Decorative flourish behind name */}
+          <span
+            aria-hidden
+            className="absolute inset-x-0 -top-8 sm:-top-12 mx-auto text-rosegold-200/30 dark:text-rosegold-100/15 font-script text-7xl sm:text-9xl select-none pointer-events-none"
+          >
+            ✦
+          </span>
+          <h1 className="relative heading-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[1] text-shimmer-rosegold pb-3">
+            Fariha Tasnim
+          </h1>
+        </motion.div>
 
         {/* Subheading */}
         <motion.p
@@ -189,7 +198,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Soft bottom fade into next section */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-cream-50 dark:to-nightblue-900" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent via-cream-50/60 to-cream-50 dark:via-nightblue-900/60 dark:to-nightblue-900" />
     </section>
   )
 }

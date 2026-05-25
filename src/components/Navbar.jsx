@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Heart, Moon, Sun, Sparkles, Menu, X, Stars } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Heart, Moon, Sun, Sparkles, Menu, X, Stars, LogOut } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { useAuth } from '../hooks/useAuth'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
@@ -16,6 +18,13 @@ const NAV_ITEMS = [
 export default function Navbar({ theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -127,6 +136,23 @@ export default function Navbar({ theme, onToggleTheme }) {
           >
             <Stars className="h-4 w-4" />
           </IconButton>
+
+          {user && (
+            <>
+              <span className="h-5 w-px bg-rosegold-200/40 dark:bg-rosegold-100/15 mx-1" />
+              <div className="hidden xl:flex items-center gap-2 pl-1 pr-2 text-xs">
+                <span className="text-warmbrown-300 dark:text-cream-100/70">
+                  Hi,
+                </span>
+                <span className="font-medium text-rosegold-500 dark:text-softgold-200">
+                  {user.name.split(' ')[0]}
+                </span>
+              </div>
+              <IconButton label="Sign out" onClick={handleLogout}>
+                <LogOut className="h-4 w-4" />
+              </IconButton>
+            </>
+          )}
         </div>
 
         {/* Mobile burger */}
@@ -193,7 +219,20 @@ export default function Navbar({ theme, onToggleTheme }) {
                 <IconButton label="Sparkles">
                   <Sparkles className="h-4 w-4" />
                 </IconButton>
+                {user && (
+                  <IconButton label="Sign out" onClick={handleLogout}>
+                    <LogOut className="h-4 w-4" />
+                  </IconButton>
+                )}
               </div>
+              {user && (
+                <p className="text-xs text-warmbrown-300 dark:text-cream-100/60 mt-3">
+                  Signed in as{' '}
+                  <span className="text-rosegold-400 dark:text-softgold-200 font-medium">
+                    {user.name}
+                  </span>
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}

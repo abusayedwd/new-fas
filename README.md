@@ -27,12 +27,24 @@ A heartfelt, handcrafted surprise gift for **Fariha Tasnim**, from her husband *
 
 | URL | What you see |
 | --- | --- |
-| `/`            | Full cinematic welcome (shown first) → main page |
-| `/welcome`     | Same as `/` |
-| `/main`        | Just the main page (skip intro) |
-| `/curtain`     | Replay just the curtain reveal |
-| `/questions`   | Replay just the Yes/No questions |
-| `/commitments` | Replay just the promises |
+| `/login`       | Login page (default — shown first) |
+| `/welcome`     | Full cinematic welcome (auth required) |
+| `/main`        | Just the main page (auth required) |
+| `/curtain`     | Replay just the curtain reveal (auth required) |
+| `/questions`   | Replay just the Yes/No questions (auth required) |
+| `/commitments` | Replay just the promises (auth required) |
+
+## 🔐 Demo Login
+
+Two demo accounts share the same password (your nikah date):
+
+| Username | Password   | Identity     |
+| -------- | ---------- | ------------ |
+| `fariha` | `15052026` | Fariha — the beloved |
+| `sayed`  | `15052026` | Abu Sayed — preview mode |
+
+Click **"Need a hint?"** on the login screen to autofill either account.
+Sign-in state persists in `localStorage`.
 
 ---
 

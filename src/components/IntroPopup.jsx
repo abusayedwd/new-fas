@@ -1,31 +1,50 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Heart, Volume2, VolumeX, Sparkles, MoonStar } from 'lucide-react'
 import Button from './ui/Button'
+import { useAuth } from '../hooks/useAuth'
 
 /**
  * Fullscreen luxury intro popup.
  * Sequential message reveal → CTA → fades out, lifting the page.
+ *
+ * If Sayed (the husband) is signed in, he sees a gentle "preview mode"
+ * greeting. Fariha sees the original heartfelt sequence.
  */
-const MESSAGES = [
-  {
-    type: 'salam',
-    main: 'Assalamu Alaikum, Fariha',
-    accent: '❤',
-  },
-  {
-    type: 'verse',
-    main: 'From the day you entered my life…',
-    sub: 'My world became softer, calmer, and more beautiful.',
-  },
-  {
-    type: 'signature',
-    main: 'A small surprise from your husband,',
-    sub: 'Abu Sayed',
-  },
-]
+function buildMessages(user) {
+  const isSayed = user?.username === 'sayed'
+
+  return [
+    {
+      type: 'salam',
+      main: isSayed
+        ? 'Assalamu Alaikum, Abu Sayed'
+        : `Assalamu Alaikum, ${user?.name || 'Fariha'}`,
+      accent: '❤',
+    },
+    {
+      type: 'verse',
+      main: isSayed
+        ? 'A preview of the surprise you built…'
+        : 'From the day you entered my life…',
+      sub: isSayed
+        ? 'May Allah keep your love soft, halal, and lasting.'
+        : 'My world became softer, calmer, and more beautiful.',
+    },
+    {
+      type: 'signature',
+      main: isSayed
+        ? 'Crafted with love by'
+        : 'A small surprise from your husband,',
+      sub: 'Abu Sayed',
+    },
+  ]
+}
 
 export default function IntroPopup({ onOpen, audioEnabled, onToggleAudio }) {
+  const { user } = useAuth()
+  const MESSAGES = useMemo(() => buildMessages(user), [user])
+
   const [step, setStep] = useState(0)
   const [visible, setVisible] = useState(true)
 

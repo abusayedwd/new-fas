@@ -9,8 +9,11 @@ A heartfelt, handcrafted surprise gift for **Fariha Tasnim**, from her husband *
 ## ✨ What's inside
 
 - **Intro Popup** — fullscreen, animated, with floating lanterns, stars, moonlight, and a soft music toggle
+- **Curtain Reveal** — silk curtains with both your photos descend from the top
+- **Yes / No Questions** — playful romantic Q&A (the "No" button shies away from the cursor 🤍)
+- **Commitments** — 8 Islamic + romantic vows revealed one by one, sealed before Allah
 - **Hero** — parallax moon, animated gradient, shimmering name
-- **Navbar** — transparent → glassmorphism on scroll, with theme toggle
+- **Navbar** — glassmorphism + theme toggle, readable on every section
 - **Our Story Timeline** — animated relationship milestones
 - **Memories Gallery** — masonry grid + lightbox
 - **Love Letter** — typewriter paper card with floating candles
@@ -19,6 +22,17 @@ A heartfelt, handcrafted surprise gift for **Fariha Tasnim**, from her husband *
 - **Live Love Counter** — days, hours, minutes, seconds since 15 May 2026
 - **Footer** — heartbeat, dua, twinkling stars
 - **Atmosphere** — cursor glow, particle field, floating hearts, scroll progress, dark/light romantic theme
+
+## 🛣️ Routes
+
+| URL | What you see |
+| --- | --- |
+| `/`            | Full cinematic welcome (shown first) → main page |
+| `/welcome`     | Same as `/` |
+| `/main`        | Just the main page (skip intro) |
+| `/curtain`     | Replay just the curtain reveal |
+| `/questions`   | Replay just the Yes/No questions |
+| `/commitments` | Replay just the promises |
 
 ---
 

@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge'
 
 /**
  * Merge Tailwind classes safely.
- * Used by all shadcn-style components.
+ * Used by all shadcn-style components. added to new text like
  */
 export function cn(...inputs) {
   return twMerge(clsx(inputs))

@@ -9,10 +9,12 @@ import { Heart, Sparkles } from 'lucide-react'
  * meet in the middle to display the couple's photos + names,
  * then continue downward — revealing the main page like a stage curtain.
  *
- * NOTE: Replace the two image src paths below with real photos:
+ * NOTE: The two image paths below currently point at generated demo art in
+ * /public/couple/. Replace with real photos when ready:
  *   /public/couple/abu-sayed.jpg
  *   /public/couple/fariha.jpg
- * If the files are not present, beautiful gradient placeholders are shown.
+ * (update the imageSrc props to match) — if a file is ever missing, the
+ * gradient + initial placeholder shows through automatically.
  */
 
 const TIMINGS = {
@@ -82,8 +84,8 @@ export default function CurtainReveal({ onComplete }) {
             side="left"
             name="Abu Sayed"
             role="Your Husband"
-            // Replace with: /couple/abu-sayed.jpg
-            imageSrc="/couple/abu-sayed.jpg"
+            // Demo art for now — replace with a real photo at /couple/abu-sayed.jpg
+            imageSrc="/couple/abu-sayed.svg"
             paletteFrom="#75593F"
             paletteTo="#A86C53"
           />
@@ -100,8 +102,8 @@ export default function CurtainReveal({ onComplete }) {
             side="right"
             name="Fariha Tasnim"
             role="My Beloved"
-            // Replace with: /couple/fariha.jpg
-            imageSrc="/couple/fariha.jpg"
+            // Demo art for now — replace with a real photo at /couple/fariha.jpg
+            imageSrc="/couple/fariha.svg"
             paletteFrom="#C08A6E"
             paletteTo="#EDC2B4"
           />

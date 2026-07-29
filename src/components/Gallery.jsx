@@ -6,9 +6,10 @@ import SectionHeading from './ui/SectionHeading'
 /**
  * Memories Gallery — masonry grid + lightbox.
  *
- * NOTE: Replace each `placeholder` entry's `src` with your real photo paths
- * once you have them. Put files in /public/memories/ and reference them as
- * "/memories/your-photo.jpg". The component will work the same way.
+ * NOTE: Each `placeholder` currently points at a generated demo SVG in
+ * /public/memories/ so the gallery isn't empty. Once you have real photos,
+ * drop them in /public/memories/ (e.g. "01.jpg") and update the matching
+ * `placeholder` path below — the component works the same way either way.
  */
 const MEMORIES = [
   {
@@ -17,14 +18,14 @@ const MEMORIES = [
     caption: 'Our first quiet promise to Allah',
     palette: 'from-rosegold-100 via-cream-200 to-rosegold-200',
     tall: true,
-    placeholder: '/memories/01.jpg', // replace
+    placeholder: '/memories/01.svg', // demo art — replace with /memories/01.jpg
   },
   {
     id: 2,
     title: 'Henna Night',
     caption: 'Laughter that I will remember forever',
     palette: 'from-softgold-100 via-cream-100 to-rosegold-100',
-    placeholder: '/memories/02.jpg',
+    placeholder: '/memories/02.svg', // demo art — replace with /memories/02.jpg
   },
   {
     id: 3,
@@ -32,21 +33,21 @@ const MEMORIES = [
     caption: 'Three sacred words. One forever.',
     palette: 'from-cream-100 via-rosegold-100 to-rosegold-200',
     tall: true,
-    placeholder: '/memories/03.jpg',
+    placeholder: '/memories/03.svg', // demo art — replace with /memories/03.jpg
   },
   {
     id: 4,
     title: 'First Walima',
     caption: 'Surrounded by every dua we needed',
     palette: 'from-beige-100 via-cream-200 to-softgold-100',
-    placeholder: '/memories/04.jpg',
+    placeholder: '/memories/04.svg', // demo art — replace with /memories/04.jpg
   },
   {
     id: 5,
     title: 'Quiet Morning',
     caption: 'Our first coffee as husband and wife',
     palette: 'from-rosegold-100 via-cream-100 to-beige-100',
-    placeholder: '/memories/05.jpg',
+    placeholder: '/memories/05.svg', // demo art — replace with /memories/05.jpg
   },
   {
     id: 6,
@@ -54,21 +55,21 @@ const MEMORIES = [
     caption: 'The night sky finally felt complete',
     palette: 'from-warmbrown-50 via-cream-100 to-rosegold-100',
     tall: true,
-    placeholder: '/memories/06.jpg',
+    placeholder: '/memories/06.svg', // demo art — replace with /memories/06.jpg
   },
   {
     id: 7,
     title: 'Hand in Hand',
     caption: 'A promise written without words',
     palette: 'from-softgold-100 via-rosegold-100 to-cream-200',
-    placeholder: '/memories/07.jpg',
+    placeholder: '/memories/07.svg', // demo art — replace with /memories/07.jpg
   },
   {
     id: 8,
     title: 'Praying Side by Side',
     caption: 'The most beautiful sound — two hearts in sujood',
     palette: 'from-cream-100 via-beige-100 to-rosegold-100',
-    placeholder: '/memories/08.jpg',
+    placeholder: '/memories/08.svg', // demo art — replace with /memories/08.jpg
   },
 ]
 
@@ -186,36 +187,39 @@ export default function Gallery() {
  * Otherwise, render an elegant gradient + decorative pattern.
  */
 function MemoryThumb({ memory, large = false }) {
+  const [imageOk, setImageOk] = useState(true)
+
   return (
     <div className={`relative h-full w-full bg-gradient-to-br ${memory.palette}`}>
-      {/* Try the real image; if not available, the gradient + pattern below shows through */}
+      {/* Real (or demo) image */}
       <img
         src={memory.placeholder}
         alt={memory.title}
         loading="lazy"
-        onError={(e) => {
-          // Hide broken images so the gradient placeholder remains beautiful
-          e.currentTarget.style.display = 'none'
-        }}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-110"
+        onError={() => setImageOk(false)}
+        className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[1.6s] ease-out group-hover:scale-110 ${
+          imageOk ? '' : 'hidden'
+        }`}
       />
 
-      {/* Decorative arabesque pattern */}
-      <div className="absolute inset-0 arabesque-bg opacity-25" />
-
-      {/* Decorative camera icon as a subtle hint */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div
-          className={`flex flex-col items-center gap-2 text-warmbrown-300/40 dark:text-warmbrown-300/70 ${
-            large ? 'scale-150' : ''
-          }`}
-        >
-          <Camera className="h-7 w-7" strokeWidth={1.2} />
-          <span className="font-serif text-xs uppercase tracking-[0.3em]">
-            {memory.title}
-          </span>
-        </div>
-      </div>
+      {/* Fallback shown only if no image loads at all */}
+      {!imageOk && (
+        <>
+          <div className="absolute inset-0 arabesque-bg opacity-25" />
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div
+              className={`flex flex-col items-center gap-2 text-warmbrown-300/40 dark:text-warmbrown-300/70 ${
+                large ? 'scale-150' : ''
+              }`}
+            >
+              <Camera className="h-7 w-7" strokeWidth={1.2} />
+              <span className="font-serif text-xs uppercase tracking-[0.3em]">
+                {memory.title}
+              </span>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Soft inner sheen */}
       <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-white/15" />

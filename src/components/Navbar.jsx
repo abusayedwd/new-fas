@@ -11,6 +11,8 @@ const NAV_ITEMS = [
   { label: 'Memories', href: '#memories' },
   { label: 'Letter', href: '#letter' },
   { label: 'Duas', href: '#duas' },
+  { label: '99 Names', href: '#names' },
+  { label: 'Our Diary', href: '#notes' },
   { label: 'Future', href: '#future' },
   { label: 'Gallery', href: '#gallery' },
 ]

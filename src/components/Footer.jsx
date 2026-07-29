@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Heart, MoonStar, Stars } from 'lucide-react'
+import MosqueSkyline from './atmosphere/MosqueSkyline'
 
 export default function Footer() {
   return (
@@ -9,6 +10,9 @@ export default function Footer() {
     >
       {/* Stars twinkling at top */}
       <FooterStars />
+
+      {/* Mosque skyline silhouette resting on the horizon */}
+      <MosqueSkyline className="pointer-events-none absolute inset-x-0 bottom-0 h-28 sm:h-36 w-full text-rosegold-200/25 dark:text-nightblue-700/70" />
 
       {/* Crescent moon */}
       <motion.div

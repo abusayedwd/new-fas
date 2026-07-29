@@ -252,6 +252,12 @@
     background: linear-gradient(to bottom, #EDC2B4, #C08A6E);
     border-radius: 9999px;
   }
+
+  /* Pause the Asma-ul-Husna marquee rows on hover so names can be read */
+  .marquee-row:hover .animate-marquee,
+  .marquee-row:hover .animate-marquee-reverse {
+    animation-play-state: paused;
+  }
 }
 
 /* ---------- Custom cursor support ---------- */

@@ -9,6 +9,8 @@ import Timeline from '../components/Timeline'
 import Gallery from '../components/Gallery'
 import Letter from '../components/Letter'
 import Duas from '../components/Duas'
+import AsmaulHusna from '../components/AsmaulHusna'
+import LoveNotes from '../components/LoveNotes'
 import Future from '../components/Future'
 import LoveCounter from '../components/LoveCounter'
 import Footer from '../components/Footer'
@@ -37,6 +39,8 @@ export default function MainPage() {
           <Gallery />
           <Letter />
           <Duas />
+          <AsmaulHusna />
+          <LoveNotes />
           <Future />
           <LoveCounter />
         </main>

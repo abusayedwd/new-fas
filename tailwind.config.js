@@ -112,6 +112,14 @@ export default {
           '20%': { opacity: 0.9 },
           '100%': { transform: 'translateY(-200px)', opacity: 0 },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         floaty: 'floaty 6s ease-in-out infinite',
@@ -122,6 +130,8 @@ export default {
         heartbeat: 'heartbeat 1.6s ease-in-out infinite',
         'slow-spin': 'slowSpin 120s linear infinite',
         'rise-fade': 'riseAndFade 6s ease-out forwards',
+        marquee: 'marquee 50s linear infinite',
+        'marquee-reverse': 'marqueeReverse 60s linear infinite',
       },
       backdropBlur: {
         xs: '2px',

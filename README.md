@@ -18,6 +18,8 @@ A heartfelt, handcrafted surprise gift for **Fariha Tasnim**, from her husband *
 - **Memories Gallery** — masonry grid + lightbox
 - **Love Letter** — typewriter paper card with floating candles
 - **Duas Section** — Qur’anic verses & marriage duas with crescent glow
+- **Asma-ul-Husna** — the 99 Names of Allah, with an auto-rotating spotlight card and two scrolling marquee rows
+- **Love Notes** — a little diary where the two of you can leave notes for each other (saved locally in the browser)
 - **Future Dreams** — floating glassmorphism dream cards
 - **Live Love Counter** — days, hours, minutes, seconds since 15 May 2026
 - **Footer** — heartbeat, dua, twinkling stars
@@ -75,6 +77,8 @@ Everything is laid out in `src/components/`. The most useful places to edit:
 | Photos | `Gallery.jsx` (`MEMORIES` array — drop files in `public/memories/`) |
 | Love letter text | `Letter.jsx` (top of file — `PARAGRAPHS` & `SIGNATURE_LINES`) |
 | Duas | `Duas.jsx` (top of file — `DUAS` array) |
+| 99 Names of Allah | `AsmaulHusna.jsx` (top of file — `NAMES` array) |
+| Love notes / diary | `LoveNotes.jsx` (top of file — `DEFAULT_NOTES` array) |
 | Future dreams | `Future.jsx` (top of file — `DREAMS` array) |
 | Background music | Drop an mp3 at `public/audio/nasheed.mp3` |
 | Colours | `tailwind.config.js` (rose-gold, soft-gold, cream palette) |

@@ -1,0 +1,22 @@
+<svg width="700" height="700" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F8E1D8"/><stop offset="50%" stop-color="#EDC2B4"/><stop offset="100%" stop-color="#D9A48C"/></linearGradient>
+    
+    <pattern id="p" width="90" height="90" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#8C5440" stroke-opacity="0.10" stroke-width="1.2">
+        <path d="M45 6 L57 24 L79 24 L61 37 L68 60 L45 45 L22 60 L29 37 L11 24 L33 24 Z"/>
+        <circle cx="45" cy="45" r="16"/>
+        <circle cx="45" cy="45" r="30"/>
+      </g>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="42%" r="45%">
+      <stop offset="0%" stop-color="#FFFDF7" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#FFFDF7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="700" height="700" fill="url(#g)"/>
+  <rect width="700" height="700" fill="url(#p)"/>
+  <circle cx="350" cy="294" r="230" fill="url(#glow)"/>
+  <circle cx="350" cy="350" r="190" fill="none" stroke="#8C5440" stroke-width="3" stroke-dasharray="2 14" stroke-linecap="round" opacity="0.6"/>
+  <text x="50%" y="54%" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="220" fill="#8C5440" opacity="0.85">F</text>
+</svg>
